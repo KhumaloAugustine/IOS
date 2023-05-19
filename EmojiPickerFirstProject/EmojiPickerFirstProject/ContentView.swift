@@ -6,21 +6,34 @@
 //
 
 import SwiftUI
-
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+//Defining the list of few emojis that I want to display
+// This enu is the list of cases which you can define and pick from.
+enum Emoji: String, CaseIterable {
+    case 😀, 😃, 😁, 🥳, 🥹, 🤬, 👍, 🙏🏿, 👤, 👨‍🦰, 💪🏿, 🧵, 🕶️, 👞, 🧤, 🙊, 🛶, 🚜, 🚚, 🚅
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct ContentView: View {
+    // Creating a referrence to our emoji
+    @State var selection: Emoji = .😀
+    
+    var body: some View {
+        // This is the Welcome display text
+        VStack{
+            Text(selection.rawValue)
+                .font(.system(size: 150))
+            
+            Picker("Select emoji", selection: $selection ){ForEach(Emoji.allCases, id: \.self){ emoji in
+                Text(emoji.rawValue)}
+            
+            }
+            .pickerStyle(.segmented)
+        }
+        
+    }
+    
+    struct ContentView_Previews: PreviewProvider {
+        static var previews: some View {
+            ContentView()
+        }
     }
 }
