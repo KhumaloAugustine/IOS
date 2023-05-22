@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='rendered'>
+    <pages>
+        <page name='Introduction'/>
+        <page name='Types and Variables - Mutability'/>
+        <page name='Types and Variables - Naming'/>
+        <page name='Optionals - Valueless State'/>
+        <page name='Optionals - Unwrapping'/>
+        <page name='Arithmetic Operators'/>
+        <page name='Comparison Operators'/>
+        <page name='Logical Operators'/>
+        <page name='Other Operators'/>
+        <page name='Strings and Interpolation'/>
+        <page name='Enumerations and Switch'/>
+        <page name='Functions - Fundamentals'/>
+        <page name='Arrays'/>
+        <page name='Functions - Naming'/>
+        <page name='Dictionaries'/>
+        <page name='Control Flow'/>
+    </pages>
+</playground>
