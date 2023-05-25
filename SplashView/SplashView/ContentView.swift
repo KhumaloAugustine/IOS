@@ -2,23 +2,58 @@
 //  ContentView.swift
 //  SplashView
 //
-//  Created by DA MAC M1 121 on 2023/05/23.
+//  Created by DA MAC M1 121 on 2023/05/25.
 //
 
 import SwiftUI
+import Combine
+
 
 struct ContentView: View {
+    @EnvironmentObject var dataSource: ContactDataSource
+    @State private var showCreateContact = false
+    
     var body: some View {
-        
-        ZStack{
-            Color.blue.ignoresSafeArea()
-            Text("WELCOME PAGE").foregroundColor(.white).font(.system(size:30))
+        NavigationView {
+            List {
+                ForEach(dataSource.contacts) { contact in
+                    VStack(alignment: .leading) {
+                        Text("\(contact.firstName) \(contact.lastName)")
+                            .font(.headline)
+                        Text(contact.email)
+                            .font(.subheadline)
+                    }
+                    .contextMenu {
+                        Button(action: { editContact(contact) }) {
+                            Label("Edit", systemImage: "pencil")
+                        }
+                        Button(action: { deleteContact(contact) }) {
+                            Label("Delete", systemImage: "trash")
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Contacts")
+            .navigationBarItems(trailing:
+                Button(action: { showCreateContact = true }) {
+                    Image(systemName: "plus")
+                }
+            )
+        }
+        .sheet(isPresented: $showCreateContact) {
+            CreateContactView()
         }
     }
-}
+    
+    func editContact(_ contact: Contact) {
+        let editView = EditContactView(contact: contact)
+        let host = UIHostingController(rootView: editView)
+        host.modalPresentationStyle = .fullScreen
+        UIApplication.shared.windows.first?.rootViewController?.present(host, animated: true, completion: nil)
+    }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+    
+    func deleteContact(_ contact: Contact) {
+        dataSource.deleteContact(contact: contact)
     }
 }

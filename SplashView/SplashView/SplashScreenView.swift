@@ -20,7 +20,7 @@ struct SplashScreenView: View {
             VStack{
                 VStack{
                     Image(systemName: "hare.fill").font(.system(size: 80)).foregroundColor(.blue)
-                    Text("ApplicationNAme ").font(Font.custom("Berskerville-Bold", size: 30)).foregroundColor(.black.opacity(0.80))
+                    Text("EMS").font(Font.custom("Berskerville-Bold", size: 30)).foregroundColor(.black.opacity(0.80))
                 }
                 .scaleEffect(size)
                 .opacity(opacity)

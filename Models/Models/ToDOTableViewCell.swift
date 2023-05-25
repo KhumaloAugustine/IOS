@@ -9,6 +9,8 @@ import UIKit
 
 class ToDOTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var itleLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
