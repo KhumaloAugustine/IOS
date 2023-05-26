@@ -38,7 +38,7 @@ struct CreateContactView: View {
                     Text("Save Contact")
                 }
             }
-            .navigationBarTitle("Create Contact")
+            .navigationBarTitle("Create New Employee")
         }
     }
     

@@ -33,7 +33,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("Contacts")
+            .navigationBarTitle("Employee")
             .navigationBarItems(trailing:
                 Button(action: { showCreateContact = true }) {
                     Image(systemName: "plus")
