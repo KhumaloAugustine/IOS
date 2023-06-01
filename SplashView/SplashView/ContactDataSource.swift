@@ -25,4 +25,6 @@ class ContactDataSource: ObservableObject {
             contacts.remove(at: index)
         }
     }
+    
 }
+
